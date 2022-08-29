@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eazy_quizzes_db',
-        'USER': 'quiz_admin',
-        'PASSWORD': '23132121',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'ddr934ug4eu66l',
+        'USER': 'rnxvaqchxywnqw',
+        'PASSWORD': '532db57bd31a796ed1a4d046eb0d95ffca868617fdd667027867f9f61a5cf006',
+        'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
