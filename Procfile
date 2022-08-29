@@ -1,1 +1,1 @@
-web: gunicorn easy-quizzes.wsgi
+web: gunicorn core.wsgi
