@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qhn$ht&bv51=!f2-)9zw!li6p*8n4qou+y4aeqf9t+g9pazx-@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'easy-quizzes-api.herokuapp.com']
 
 
 # Application definition
