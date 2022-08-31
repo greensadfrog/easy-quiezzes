@@ -19,10 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qhn$ht&bv51=!f2-)9zw!li6p*8n4qou+y4aeqf9t+g9pazx-@'
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-qhn$ht&bv51=!f2-)9zw!li6p*8n4qou+y4aeqf9t+g9pazx-@')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'easy-quizzes-api.herokuapp.com']
 
@@ -89,11 +88,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddr934ug4eu66l',
-        'USER': 'rnxvaqchxywnqw',
-        'PASSWORD': '532db57bd31a796ed1a4d046eb0d95ffca868617fdd667027867f9f61a5cf006',
-        'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'eazy_quizzes_db',
+        'USER': 'quiz_admin',
+        'PASSWORD': '23132121',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -141,3 +140,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
