@@ -23,7 +23,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-qhn$ht&bv51=!f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'easy-quizzes-api.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'easy-quizzes-api.herokuapp.com',
+                 'easy-quizzes-api-stage.herokuapp.com'
+                 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
