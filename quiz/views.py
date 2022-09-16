@@ -15,13 +15,13 @@ class QuizListView(generics.ListAPIView):
 
 class QuizQuestions(APIView):
     def get(self, request, format=None, **kwargs):
-        quiz = Question.objects.filter(quiz__title=kwargs['topic'])
-        serializer = QuizQuestionsSerializer(quiz, many=True)
+        questions = Question.objects.filter(quiz__title=kwargs['topic'])[kwargs['start']:kwargs['end']]
+        serializer = QuizQuestionsSerializer(questions, many=True)
         return Response(serializer.data)
 
 
 class RandomQuestion(APIView):
     def get(self, request, format=None, **kwargs):
-        question = Question.objects.filter(quiz__title=kwargs['topic']).order_by('?')[:kwargs['amount']]
+        question = Question.objects.filter(quiz__title=kwargs['topic'], id__range=(kwargs['start'], kwargs['end'])).order_by('?')[:kwargs['amount']]
         serializer = RandomQuestionSerializer(question, many=True)
         return Response(serializer.data)

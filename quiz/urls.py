@@ -5,6 +5,6 @@ app_name = 'quiz'
 
 urlpatterns = [
     path('', QuizListView.as_view(), name='quiz'),
-    path('<str:topic>/random/<int:amount>', RandomQuestion.as_view(), name='random'),
-    path('<str:topic>/questions/', QuizQuestions.as_view(), name='questions'),
+    path('<str:topic>/random/<int:amount>/<int:start>/<int:end>', RandomQuestion.as_view(), name='random'),
+    path('<str:topic>/questions/<int:start>/<int:end>', QuizQuestions.as_view(), name='questions'),
 ]
